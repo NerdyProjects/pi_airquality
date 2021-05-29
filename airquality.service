@@ -7,6 +7,7 @@ StartLimitAction=reboot
 
 [Service]
 ExecStart=/home/pi/airquality/venv/bin/python3 -u log.py
+ExecStartPre=/bin/sh -c 'while ! curl -sf http://localhost:8086/ping; do sleep 1; done'
 WorkingDirectory=/home/pi/airquality
 StandardOutput=inherit
 StandardError=inherit
