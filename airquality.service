@@ -1,0 +1,18 @@
+[Unit]
+Description=Log airquality to influxDB
+After=network.target
+StartLimitBurst=6
+StartLimitIntervalSec=300s
+StartLimitAction=reboot
+
+[Service]
+ExecStart=/home/pi/airquality/venv/bin/python3 -u log.py
+WorkingDirectory=/home/pi/airquality
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+RestartSec=10s
+User=pi
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,6 @@
+pimoroni-sgp30
+smbus2
+RPi.GPIO
+pms5003
+pimoroni-bme280
+influxdb
